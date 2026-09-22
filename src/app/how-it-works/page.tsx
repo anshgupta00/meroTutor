@@ -1,0 +1,5 @@
+import { redirect } from "next/navigation";
+
+export default function HowItWorksRedirectPage() {
+  redirect("/about-us#how-it-works");
+}
