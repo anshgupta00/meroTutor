@@ -5,11 +5,11 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Mero Tutor | Find Trusted Home Tutors in Kathmandu",
+    default: "Mero Tutor | Find Trusted Home Tutors in Nepal",
     template: "%s | Mero Tutor",
   },
   description:
-    "Find trusted home tutors and online tutors in Kathmandu Valley, Nepal. Mero Tutor connects students and parents with verified, experienced teachers for home tuition and online classes.",
+    "Find trusted home tutors and online tutors across Nepal. Mero Tutor connects students and parents with verified, experienced teachers for home tuition and online classes.",
   keywords: [
     "home tutor Kathmandu",
     "home tuition Nepal",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     "Mero Tutor",
   ],
   openGraph: {
-    title: "Mero Tutor | Trusted Home Tutors in Kathmandu",
+    title: "Mero Tutor | Trusted Home Tutors in Nepal",
     description:
-      "Find the right tutor for your child in Kathmandu Valley. Home tuition and online tuition available.",
+      "Find the right tutor for your child anywhere in Nepal. Home tuition and online tuition available.",
     type: "website",
     locale: "en_NP",
     siteName: "Mero Tutor",

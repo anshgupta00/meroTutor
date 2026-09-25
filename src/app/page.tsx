@@ -9,9 +9,9 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import HelpCTA from "@/components/home/HelpCTA";
 
 export const metadata: Metadata = {
-  title: "Mero Tutor | Find Trusted Home Tutors in Kathmandu",
+  title: "Mero Tutor | Find Trusted Home Tutors in Nepal",
   description:
-    "Find trusted home tutors and online tutors in Kathmandu Valley. Connect with verified, experienced teachers for home tuition and online classes.",
+    "Find trusted home tutors and online tutors across Nepal. Connect with verified, experienced teachers for home tuition and online classes.",
 };
 
 export default function HomePage() {

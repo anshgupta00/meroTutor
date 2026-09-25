@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Home, Users, Clock, Target, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import HelpCTA from "@/components/home/HelpCTA";
 
 export const metadata: Metadata = {
-  title: "Home Tuition in Kathmandu Valley | Mero Tutor",
-  description: "Find a trusted home tutor in Kathmandu, Lalitpur or Bhaktapur. One-to-one home tuition for all subjects and classes.",
+  title: "Home Tuition in Nepal | Mero Tutor",
+  description: "Find a trusted home tutor anywhere in Nepal. One-to-one home tuition for all subjects and classes.",
 };
 
 const BENEFITS = [
@@ -13,7 +14,7 @@ const BENEFITS = [
   { icon: <Users className="h-5 w-5 text-brand-blue" />, title: "One-to-One Attention", desc: "All the tutor's focus is on your child. No distractions, no waiting — personalised learning every session." },
   { icon: <Clock className="h-5 w-5 text-brand-blue" />, title: "Flexible Timing", desc: "Choose morning, afternoon or evening sessions. Change the schedule when your family needs change." },
   { icon: <Target className="h-5 w-5 text-brand-blue" />, title: "Tailored to Your Child", desc: "Tutors adapt their teaching style and pace to match your child's strengths, weaknesses and goals." },
-  { icon: <MapPin className="h-5 w-5 text-brand-blue" />, title: "Covering Kathmandu Valley", desc: "We have tutors available across Kathmandu, Lalitpur and Bhaktapur districts." },
+  { icon: <MapPin className="h-5 w-5 text-brand-blue" />, title: "Covering All of Nepal", desc: "We have tutors available across Nepal — from Kathmandu Valley to other major cities and districts." },
   { icon: <Users className="h-5 w-5 text-brand-blue" />, title: "Verified Tutors", desc: "All tutors go through our verification process. Your family's safety and trust are our priority." },
 ];
 
@@ -88,7 +89,7 @@ export default function HomeTuitionPage() {
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-800 text-brand-navy mb-3">Areas We Serve</h2>
-          <p className="text-brand-text mb-8">We currently serve all major areas across Kathmandu Valley.</p>
+          <p className="text-brand-text mb-8">We serve all major areas across Nepal. Below are some of the cities and localities we actively cover.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[
               { city: "Kathmandu", areas: ["Baneshwor", "Koteshwor", "Boudha", "Chabahil", "Naxal", "Maharajgunj", "Lazimpat", "Balaju", "Gongabu"] },
@@ -111,15 +112,7 @@ export default function HomeTuitionPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand-bg">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-800 text-brand-navy mb-3">Ready to Find a Home Tutor?</h2>
-          <p className="text-brand-text mb-6">Browse available tutors or let us help you find the right match.</p>
-          <Button asChild className="bg-brand-blue hover:bg-brand-blue-dark text-white font-700 rounded-full px-10 py-3">
-            <Link href="/find-tutor?mode=home">Find a Home Tutor Now</Link>
-          </Button>
-        </div>
-      </section>
+      <HelpCTA />
     </div>
   );
 }

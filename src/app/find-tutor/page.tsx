@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import TutorCard from "@/components/tutors/TutorCard";
 import RequestTutorModal from "@/components/modals/RequestTutorModal";
 import ParentRequestForm from "@/components/forms/ParentRequestForm";
+import HelpCTA from "@/components/home/HelpCTA";
 import { TUTORS } from "@/data/tutors";
 import { SUBJECTS } from "@/data/subjects";
 import { CLASSES } from "@/data/classes";
@@ -191,7 +192,7 @@ function FiltersPanel({
 
 
 
-function FindTutorContent() {
+export function FindTutorContent({ lang }: { lang?: "en" | "np" }) {
   const searchParams = useSearchParams();
   const [filters, setFilters] = useState<TutorFilterState>({
     ...DEFAULT_FILTERS,
@@ -213,7 +214,7 @@ function FindTutorContent() {
     <div className="min-h-screen bg-brand-bg">
       {/* ─── PARENT TUTOR REQUEST FORM SECTION ───────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        <ParentRequestForm />
+        <ParentRequestForm lang={lang} />
       </div>
 
       {/* ─── MEET OUR TUTORS DIRECTORY SECTION ───────────────────────────── */}
@@ -228,7 +229,7 @@ function FindTutorContent() {
                 Meet Our Tutors
               </h2>
               <p className="text-xs sm:text-sm text-brand-text mt-1">
-                Browse profiles, qualifications, and hourly rates of verified home &amp; online teachers across Kathmandu Valley.
+                Browse profiles, qualifications, and hourly rates of verified home &amp; online teachers across Nepal.
               </p>
             </div>
 
@@ -345,6 +346,8 @@ function FindTutorContent() {
           </div>
         </div>
       </div>
+
+      <HelpCTA />
 
       <RequestTutorModal
         tutor={selectedTutor}

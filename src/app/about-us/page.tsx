@@ -17,12 +17,12 @@ import { Button } from "@/components/ui/button";
 export const metadata = {
   title: "About Us & How It Works | Mero Tutor",
   description:
-    "Learn about Mero Tutor — Nepal's leading platform connecting students, parents, and schools with verified home and online tutors across Kathmandu Valley.",
+    "Learn about Mero Tutor — Nepal's leading platform connecting students, parents, and schools with verified home and online tutors across Nepal.",
 };
 
 const STATS = [
-  { value: "5,000+", label: "Verified Tutors" },
-  { value: "12,000+", label: "Students Taught" },
+  { value: "2,000+", label: "Verified Tutors" },
+  { value: "3,000+", label: "Students Taught" },
   { value: "98%", label: "Satisfaction Rate" },
   { value: "100%", label: "Background Checked" },
 ];
@@ -103,8 +103,8 @@ const FAQS = [
     a: "Yes. You can request a free demo class from any tutor's profile before deciding to continue.",
   },
   {
-    q: "What areas in Kathmandu Valley do you cover?",
-    a: "We currently cover all major areas in Kathmandu, Lalitpur and Bhaktapur districts.",
+    q: "Where in Nepal do you provide tutors?",
+    a: "We connect students with tutors across Nepal — including Kathmandu, Lalitpur, Bhaktapur, and beyond. Contact us to check availability in your area.",
   },
   {
     q: "Can I find an online tutor through Mero Tutor?",
@@ -116,7 +116,7 @@ const TIMELINE = [
   { year: "2021", title: "Platform Founded", desc: "Launched in Kathmandu to connect parents with trusted home tutors." },
   { year: "2022", title: "1,000+ Verified Tutors", desc: "Introduced Nepal's first 3-step tutor background verification system." },
   { year: "2023", title: "Online & Institutional Hiring", desc: "Expanded to live online tuition and school/college faculty placement." },
-  { year: "2024+", title: "Nepal's Largest Network", desc: "12,000+ students and 5,000+ educators across the Kathmandu Valley." },
+  { year: "2024+", title: "Nepal's Largest Network", desc: "3,000+ students taught and 2,000+ verified tutors across Nepal." },
 ];
 
 const VALUES = [
@@ -148,7 +148,7 @@ export default function AboutUsPage() {
               </h1>
 
               <p className="text-lg text-slate-500 font-[500] leading-relaxed mb-8 max-w-lg">
-                Mero Tutor connects students, parents, and educational institutes across Kathmandu Valley with certified tutors for home tuition, online classes, and school staffing.
+                Mero Tutor connects students, parents, and educational institutes across Nepal with certified tutors for home tuition, online classes, and school staffing.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-8">
@@ -199,7 +199,7 @@ export default function AboutUsPage() {
 
                 <div className="space-y-3 mb-6">
                   {[
-                    { label: "Active Tutors", value: "5,000+ Verified Tutors" },
+                    { label: "Active Tutors", value: "2,000+ Verified Tutors" },
                     { label: "Coverage", value: "Kathmandu, Lalitpur, Bhaktapur" },
                     { label: "Service Models", value: "Home, Online & Institutional" },
                     { label: "Verification", value: "Degree, Police & Demo Class" },
@@ -445,21 +445,21 @@ export default function AboutUsPage() {
       {/* ─── BOTTOM CTA ───────────────────────────────────────────────────── */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-brand-blue to-brand-blue-dark rounded-3xl p-10 lg:p-14 text-center text-white">
-            <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-5">
-              <HelpCircle className="h-7 w-7 text-white" />
+          <div className="bg-gradient-to-br from-brand-teal-light via-white to-brand-blue-light rounded-3xl border border-brand-border p-10 lg:p-14 text-center shadow-sm">
+            <div className="w-14 h-14 bg-brand-teal-light border border-brand-teal/20 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-xs">
+              <HelpCircle className="h-7 w-7 text-brand-teal-dark" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-[800] text-white tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl font-[900] text-brand-navy tracking-tight mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-white/80 font-[500] max-w-xl mx-auto mb-8 text-base sm:text-lg leading-relaxed">
-              Whether you need a home tutor in Kathmandu or full-time teachers for your institution, we are ready to help you within 24 hours.
+            <p className="text-brand-text font-[500] max-w-xl mx-auto mb-8 text-base sm:text-lg leading-relaxed">
+              Whether you need a home tutor anywhere in Nepal or full-time teachers for your institution, we are ready to help you within 24 hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button size="lg" className="bg-white text-brand-blue hover:bg-brand-blue-light font-[800] rounded-full px-8 py-6 text-base shadow-md" asChild>
+              <Button size="lg" className="bg-brand-teal hover:bg-brand-teal-dark text-white font-[800] rounded-full px-8 py-6 text-base shadow-sm" asChild>
                 <Link href="/find-tutor">Find a Tutor</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-[800] rounded-full px-8 py-6 text-base" asChild>
+              <Button size="lg" variant="outline" className="border-brand-border text-brand-navy hover:border-brand-teal hover:text-brand-teal rounded-full px-8 py-6 text-base font-[800]" asChild>
                 <Link href="/hire-tutor">Institutional Staffing</Link>
               </Button>
             </div>

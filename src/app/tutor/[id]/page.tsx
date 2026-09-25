@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import VerificationBadge from "@/components/tutors/VerificationBadge";
 import RequestTutorModal from "@/components/modals/RequestTutorModal";
 import DemoClassModal from "@/components/modals/DemoClassModal";
+import HelpCTA from "@/components/home/HelpCTA";
 import { TUTORS } from "@/data/tutors";
 import { use } from "react";
 
@@ -243,6 +244,7 @@ export default function TutorProfilePage({ params }: { params: Promise<{ id: str
 
       <RequestTutorModal tutor={tutor} open={requestOpen} onClose={() => setRequestOpen(false)} />
       <DemoClassModal tutor={tutor} open={demoOpen} onClose={() => setDemoOpen(false)} />
+      <HelpCTA />
     </div>
   );
 }

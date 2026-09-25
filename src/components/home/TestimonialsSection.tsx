@@ -3,7 +3,16 @@
 import { useState } from "react";
 import { Star, Quote, Building2, User, CheckCircle2 } from "lucide-react";
 
-const PARENT_TESTIMONIALS = [
+type Testimonial = {
+  name: string;
+  role: string;
+  location: string;
+  rating: number;
+  text: string;
+  institution?: string;
+};
+
+const PARENT_TESTIMONIALS: Testimonial[] = [
   {
     name: "Priya Shrestha",
     role: "Parent, Class 10 Student",
@@ -27,7 +36,7 @@ const PARENT_TESTIMONIALS = [
   },
 ];
 
-const INSTITUTION_TESTIMONIALS = [
+const INSTITUTION_TESTIMONIALS: Testimonial[] = [
   {
     name: "Dr. K.P. Sharma",
     role: "Academic Director",
@@ -57,7 +66,7 @@ const INSTITUTION_TESTIMONIALS = [
 export default function TestimonialsSection() {
   const [activeTab, setActiveTab] = useState<"parents" | "institutions">("parents");
 
-  const list = activeTab === "parents" ? PARENT_TESTIMONIALS : INSTITUTION_TESTIMONIALS;
+  const list: Testimonial[] = activeTab === "parents" ? PARENT_TESTIMONIALS : INSTITUTION_TESTIMONIALS;
 
   return (
     <section className="py-16 lg:py-24 bg-brand-bg border-b border-slate-200/60">

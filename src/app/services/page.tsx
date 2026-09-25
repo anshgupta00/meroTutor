@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Home, Laptop, Building2, BookOpen, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import HelpCTA from "@/components/home/HelpCTA";
 
 export const metadata = {
   title: "Our Services | Mero Tutor",
@@ -13,7 +14,7 @@ const SERVICES = [
     icon: <Home className="w-5 h-5 text-brand-blue" />,
     badge: "Most Popular",
     title: "1-on-1 Home Tuition",
-    subtitle: "Personalized learning at your doorstep across Kathmandu, Lalitpur & Bhaktapur",
+    subtitle: "Personalized learning at your doorstep across Nepal",
     description:
       "Our verified home tutors provide focused 1-on-1 attention in the comfort and safety of your home. Customized pace, individual doubt resolution, and regular progress updates for parents.",
     features: [
@@ -92,7 +93,7 @@ export default function ServicesPage() {
               <span className="text-brand-blue">Solutions for Every Need</span>
             </h1>
             <p className="text-lg text-slate-500 font-[500] leading-relaxed">
-              From 1-on-1 home tuition in Kathmandu to institutional teacher hiring for schools and colleges — tailored academic support backed by strict quality standards.
+              From 1-on-1 home tuition anywhere in Nepal to institutional teacher hiring for schools and colleges — tailored academic support backed by strict quality standards.
             </p>
           </div>
         </div>
@@ -161,6 +162,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Homepage Matching CTA */}
+      <HelpCTA />
     </div>
   );
 }

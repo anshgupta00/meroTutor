@@ -68,7 +68,7 @@ export default function PartnerInstitutesSection() {
             Partner Organizations &amp; Institutes
           </h2>
           <p className="text-base sm:text-lg text-slate-500 font-[500] leading-relaxed">
-            Trusted by leading schools, colleges, and educational organizations across Kathmandu Valley for faculty recruitment and academic support.
+            Trusted by leading schools, colleges, and educational organizations across Nepal for faculty recruitment and academic support.
           </p>
         </div>
 

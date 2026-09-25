@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, ArrowRight, ArrowLeft, User, Phone, Mail, MapPin, BookOpen, Briefcase, ChevronRight, ShieldCheck, Clock, Star } from "lucide-react";
+import { CheckCircle2, ArrowRight, ArrowLeft, User, Phone, Mail, MapPin, BookOpen, Briefcase, ChevronRight, ShieldCheck, Clock, Star, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -44,6 +44,8 @@ export default function BecomeATutorPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isCustomLocation, setIsCustomLocation] = useState(false);
+  const [customLocation, setCustomLocation] = useState("");
 
   const totalSteps = STEPS.length;
   const progress = step > 0 ? (step / totalSteps) * 100 : 0;
@@ -58,7 +60,7 @@ export default function BecomeATutorPage() {
     if (step === 1) {
       if (!data.name.trim()) e.name = "Please enter your name";
       if (!data.phone.trim()) e.phone = "Please enter your phone number";
-      if (!data.location) e.location = "Please select your location";
+      if (!data.location.trim()) e.location = "Please select or type your location";
     }
     if (step === 2) {
       if (!data.qualification.trim()) e.qualification = "Please enter your qualification";
@@ -125,17 +127,19 @@ export default function BecomeATutorPage() {
                 </h1>
 
                 <p className="text-lg text-slate-500 font-[500] leading-relaxed mb-8 max-w-lg">
-                  Connect with thousands of parents and students looking for tutors across Kathmandu Valley. Free registration — start teaching within days.
+                  Connect with 3,000+ students and parents looking for tutors across Nepal. Free registration — start teaching within days.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 mb-8">
                   <Button
                     size="lg"
-                    onClick={() => setStep(1)}
                     className="bg-brand-blue hover:bg-brand-blue-dark text-white font-[800] rounded-2xl px-7 py-6 text-base shadow-lg shadow-blue-200"
+                    asChild
                   >
-                    Register as a Tutor
-                    <ChevronRight className="w-5 h-5 ml-1" />
+                    <Link href="/login?role=tutor">
+                      Register as a Tutor
+                      <ChevronRight className="w-5 h-5 ml-1" />
+                    </Link>
                   </Button>
                   <Button
                     size="lg"
@@ -175,7 +179,7 @@ export default function BecomeATutorPage() {
                   <div className="space-y-3 mb-6">
                     {[
                       { label: "Registration Fee", value: "NPR 0 (100% Free)" },
-                      { label: "Average Income", value: "NPR 15,000 – 35,000/mo" },
+                      { label: "Average Income", value: "NPR 40,000/mo" },
                       { label: "Teaching Mode", value: "Home Tuition & Online" },
                       { label: "Tutor Badge", value: "Verified Identity Seal" },
                     ].map((stat) => (
@@ -187,10 +191,12 @@ export default function BecomeATutorPage() {
                   </div>
 
                   <Button
-                    onClick={() => setStep(1)}
+                    asChild
                     className="w-full bg-brand-blue hover:bg-brand-blue-dark text-white font-[800] rounded-2xl py-6 text-sm shadow-md shadow-blue-100"
                   >
-                    Start 3-Minute Registration →
+                    <Link href="/login?role=tutor">
+                      Start Tutor Registration / Login →
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -200,8 +206,8 @@ export default function BecomeATutorPage() {
             {/* Stats Bar */}
             <div className="mt-14 pt-8 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
               {[
-                { value: "5,000+", label: "Verified Tutors" },
-                { value: "NPR 30k+", label: "Max Monthly Earnings" },
+                { value: "2,000+", label: "Verified Tutors" },
+                { value: "NPR 40k", label: "Avg. Monthly Earnings" },
                 { value: "100%", label: "Free Registration" },
                 { value: "< 48 hrs", label: "First Tuition Match" },
               ].map((s, i) => (
@@ -237,9 +243,50 @@ export default function BecomeATutorPage() {
               ))}
             </div>
             <div className="mt-8">
-              <Button onClick={() => setStep(1)} className="bg-brand-navy hover:bg-brand-navy/90 text-white font-700 rounded-full px-7 py-3 text-sm shadow-xs">
-                Register Now <ArrowRight className="h-4 w-4 ml-2" />
+              <Button asChild className="bg-brand-navy hover:bg-brand-navy/90 text-white font-700 rounded-full px-7 py-3 text-sm shadow-xs">
+                <Link href="/login?role=tutor">
+                  Register Now <ArrowRight className="h-4 w-4 ml-2" />
+                </Link>
               </Button>
+            </div>
+          </div>
+        </section>
+        {/* Tutor Vacancies CTA (Matching Homepage CTA Box Style) */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-gradient-to-br from-brand-teal-light via-white to-brand-blue-light rounded-3xl border border-brand-border p-10 lg:p-14 text-center shadow-sm">
+              <div className="w-14 h-14 bg-brand-teal-light border border-brand-teal/20 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-xs">
+                <Briefcase className="h-7 w-7 text-brand-teal-dark" />
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl font-[900] text-brand-navy mb-3">
+                Looking for Active Tuition Vacancies?
+              </h2>
+              <p className="text-brand-text text-base sm:text-lg max-w-xl mx-auto mb-8 font-[500] leading-relaxed">
+                Browse verified home &amp; online tuition assignments across Nepal or get instant job alerts directly on WhatsApp.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <Button
+                  asChild
+                  className="bg-brand-teal hover:bg-brand-teal-dark text-white font-[700] rounded-full px-8 py-3.5 h-auto shadow-sm"
+                >
+                  <Link href="/jobs">
+                    Browse Tuition Vacancies
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </Link>
+                </Button>
+
+                <a
+                  href="https://wa.me/9779762511114?text=Namaste!%20I%20am%20a%20tutor%20looking%20for%20tuition%20jobs."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bc5a] text-white font-[700] rounded-full px-8 py-3.5 transition-colors shadow-sm text-sm"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  WhatsApp Job Alerts
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -283,11 +330,39 @@ export default function BecomeATutorPage() {
               </div>
               <div>
                 <Label className="text-sm font-600 text-brand-navy flex items-center gap-1.5 mb-1.5"><MapPin className="h-3.5 w-3.5" /> Your Location</Label>
-                <select value={data.location} onChange={e => setData(d => ({ ...d, location: e.target.value }))}
-                  className={`w-full h-10 px-3 rounded-md border text-sm bg-white text-brand-navy ${errors.location ? "border-red-400" : "border-input"}`}>
+                <select
+                  value={isCustomLocation ? "Other" : (LOCATIONS.includes(data.location) ? data.location : (data.location ? "Other" : ""))}
+                  onChange={e => {
+                    const val = e.target.value;
+                    if (val === "Other") {
+                      setIsCustomLocation(true);
+                      setData(d => ({ ...d, location: customLocation }));
+                    } else {
+                      setIsCustomLocation(false);
+                      setData(d => ({ ...d, location: val }));
+                    }
+                  }}
+                  className={`w-full h-10 px-3 rounded-md border text-sm bg-white text-brand-navy ${errors.location ? "border-red-400" : "border-input"}`}
+                >
                   <option value="">Select your location</option>
                   {LOCATIONS.map(l => <option key={l} value={l}>{l}</option>)}
+                  <option value="Other">Other (Type location self)</option>
                 </select>
+
+                {(isCustomLocation || (!LOCATIONS.includes(data.location) && data.location !== "")) && (
+                  <div className="mt-2">
+                    <Input
+                      placeholder="Type your area or city in Nepal (e.g. Pokhara, Chitwan, Dharan, Butwal)..."
+                      value={isCustomLocation ? customLocation : data.location}
+                      onChange={e => {
+                        const val = e.target.value;
+                        setCustomLocation(val);
+                        setData(d => ({ ...d, location: val }));
+                      }}
+                      className={errors.location ? "border-red-400" : ""}
+                    />
+                  </div>
+                )}
                 {errors.location && <p className="text-xs text-red-500 mt-1">{errors.location}</p>}
               </div>
             </>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { MapPin, Mail, Phone, MessageCircle, ArrowRight } from "lucide-react";
 
 const NAV_MENU = [
@@ -23,6 +24,17 @@ const TUTOR_LINKS = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  // Hide footer on dashboard pages
+  if (
+    pathname?.startsWith("/tutor-dashboard") ||
+    pathname?.startsWith("/school-dashboard") ||
+    pathname?.startsWith("/parent-dashboard") ||
+    pathname?.startsWith("/admin-dashboard")
+  ) {
+    return null;
+  }
   return (
     <footer className="bg-[#0b1220] text-white">
       {/* ── Main Grid ─────────────────────────────────────────────────── */}
@@ -41,7 +53,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[#94a3b8] text-sm leading-relaxed mb-6 max-w-xs">
-              Nepal&apos;s leading platform connecting students with verified home and online tutors across Kathmandu Valley. Quality education at your doorstep.
+              Nepal&apos;s leading platform connecting students with verified home and online tutors across Nepal. Quality education at your doorstep.
             </p>
 
             <div className="space-y-2.5">
@@ -67,7 +79,7 @@ export default function Footer() {
                 <span className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
                   <MapPin className="h-3.5 w-3.5 text-rose-400" />
                 </span>
-                Kathmandu Valley, Nepal
+                Nepal
               </div>
             </div>
           </div>

@@ -32,10 +32,6 @@ export default function HomeTuitionSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           {/* Left: Text Content */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-brand-blue-light text-brand-blue text-sm font-600 px-4 py-1.5 rounded-full mb-5">
-              <Home className="h-4 w-4" />
-              <span>Phase 1 Focus</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl font-800 text-brand-navy mb-4 leading-tight">
               Home Tuition Made Simple
             </h2>
@@ -74,8 +70,8 @@ export default function HomeTuitionSection() {
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {[
-                  { label: "Verified Tutors", value: "100+" },
-                  { label: "Happy Families", value: "500+" },
+                  { label: "Verified Tutors", value: "2,000+" },
+                  { label: "Students Taught", value: "3,000+" },
                   { label: "Subjects Covered", value: "15+" },
                   { label: "Areas in Valley", value: "30+" },
                 ].map((stat) => (

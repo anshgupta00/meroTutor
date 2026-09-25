@@ -13,6 +13,8 @@ import {
   Home,
   X,
   ShieldCheck,
+  LogIn,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -159,7 +161,7 @@ export default function JobsPage() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-full px-4 py-1.5 text-xs font-[800] mb-6">
                 <Briefcase className="w-3.5 h-3.5 text-emerald-600" />
-                {JOBS.length} Active Tuition Vacancies · Kathmandu Valley
+                {JOBS.length} Active Tuition Vacancies · Across Nepal
               </div>
 
               <h1 className="text-4xl sm:text-5xl font-[800] text-slate-900 leading-[1.15] tracking-tight mb-5">
@@ -167,8 +169,8 @@ export default function JobsPage() {
               </h1>
 
               <p className="text-lg text-slate-500 font-[500] leading-relaxed mb-8 max-w-lg">
-                Verified home &amp; online assignments across Kathmandu, Lalitpur and Bhaktapur.<br className="hidden sm:block" />
-                <span className="font-[700] text-slate-800">Earn up to NPR 30,000+/month with zero fees.</span>
+                Verified home &amp; online assignments across Nepal.<br className="hidden sm:block" />
+                <span className="font-[700] text-slate-800">Earn an average of NPR 40,000/month with zero fees.</span>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-8">
@@ -177,7 +179,7 @@ export default function JobsPage() {
                   className="bg-brand-blue hover:bg-brand-blue-dark text-white font-[800] rounded-2xl px-7 py-6 text-base shadow-lg shadow-blue-200"
                   asChild
                 >
-                  <Link href="/become-a-tutor">
+                  <Link href="/login?role=tutor">
                     Register as a Tutor
                     <ChevronRight className="w-5 h-5 ml-1" />
                   </Link>
@@ -216,8 +218,8 @@ export default function JobsPage() {
                 <div className="space-y-3 mb-6">
                   {[
                     { label: "Active Openings", value: `${JOBS.length} Vacancies` },
-                    { label: "Location", value: "Kathmandu, Lalitpur, Bhaktapur" },
-                    { label: "Salary Range", value: "NPR 7,500 – 30,000/mo" },
+                    { label: "Location", value: "Across Nepal" },
+                    { label: "Salary Range", value: "NPR 7,500 – 40,000/mo" },
                     { label: "Mode", value: "Home Tuition & Online" },
                   ].map((stat) => (
                     <div key={stat.label} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100">
@@ -247,7 +249,7 @@ export default function JobsPage() {
           <div className="mt-14 pt-8 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
               { value: `${JOBS.length}+`, label: "Active Vacancies" },
-              { value: "NPR 12k", label: "Average Monthly Fee" },
+              { value: "NPR 40k", label: "Avg. Monthly Earnings" },
               { value: "100%", label: "Verified Parents" },
               { value: "< 24 hrs", label: "Assignment Connect Time" },
             ].map((s, i) => (
@@ -323,16 +325,19 @@ export default function JobsPage() {
 
       {/* ─── BOTTOM CTA ───────────────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="bg-gradient-to-r from-brand-blue to-brand-blue-dark rounded-3xl p-10 text-center text-white">
-          <h2 className="text-2xl sm:text-3xl font-800 mb-3">Don&apos;t see the right job?</h2>
-          <p className="text-white/80 text-sm mb-7 max-w-md mx-auto">
+        <div className="bg-gradient-to-br from-brand-teal-light via-white to-brand-blue-light rounded-3xl border border-brand-border p-10 lg:p-12 text-center shadow-sm">
+          <div className="w-14 h-14 bg-brand-teal-light border border-brand-teal/20 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-xs">
+            <Briefcase className="h-7 w-7 text-brand-teal-dark" />
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-[900] text-brand-navy mb-3">Don&apos;t see the right job?</h2>
+          <p className="text-brand-text text-base sm:text-lg mb-7 max-w-md mx-auto font-[500] leading-relaxed">
             Register your profile once. We&apos;ll match you with new tuition assignments as they come in — for free.
           </p>
-          <Link href="/become-a-tutor">
-            <Button className="bg-white text-brand-navy hover:bg-brand-blue-light font-700 rounded-full px-8 py-3">
+          <Button asChild className="bg-brand-teal hover:bg-brand-teal-dark text-white font-[700] rounded-full px-8 py-3.5 h-auto shadow-sm">
+            <Link href="/login?role=tutor">
               Create Your Tutor Profile
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </div>
 
@@ -353,44 +358,36 @@ export default function JobsPage() {
             </div>
 
             <div className="p-6">
-              {isSubmitted ? (
-                <div className="py-8 text-center space-y-3">
-                  <div className="w-16 h-16 rounded-full bg-emerald-50 border-2 border-emerald-200 flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="h-8 w-8 text-emerald-500" />
-                  </div>
-                  <h4 className="font-800 text-brand-navy text-lg">Application Sent!</h4>
-                  <p className="text-xs text-brand-muted max-w-xs mx-auto">
-                    Our team will review your profile and connect you with the student&apos;s family within 24 hours.
-                  </p>
+              <div className="py-2 px-1 text-center">
+                <div className="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600 border border-emerald-200">
+                  <LogIn className="w-7 h-7" />
                 </div>
-              ) : (
-                <form onSubmit={handleApply} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="col-span-2">
-                      <label className="block text-xs font-700 text-brand-navy mb-1.5">Full Name *</label>
-                      <Input required value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} placeholder="Aayush Sharma" className="h-10 bg-brand-bg border-brand-border rounded-xl text-sm" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-700 text-brand-navy mb-1.5">Phone *</label>
-                      <Input required type="tel" value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))} placeholder="98XXXXXXXX" className="h-10 bg-brand-bg border-brand-border rounded-xl text-sm" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-700 text-brand-navy mb-1.5">Qualification *</label>
-                      <Input required value={form.qualification} onChange={e => setForm(f => ({ ...f, qualification: e.target.value }))} placeholder="e.g. B.Sc Physics" className="h-10 bg-brand-bg border-brand-border rounded-xl text-sm" />
-                    </div>
-                    <div className="col-span-2">
-                      <label className="block text-xs font-700 text-brand-navy mb-1.5">Teaching Experience *</label>
-                      <Input required value={form.experience} onChange={e => setForm(f => ({ ...f, experience: e.target.value }))} placeholder="e.g. 2 years home tuition experience" className="h-10 bg-brand-bg border-brand-border rounded-xl text-sm" />
-                    </div>
-                  </div>
-                  <Button type="submit" className="w-full bg-brand-blue hover:bg-brand-blue-dark text-white font-700 rounded-xl h-11 text-sm mt-2">
-                    Submit Application
+                <h4 className="text-lg font-[800] text-slate-900 mb-2">
+                  Tutor Login Required
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600 font-[500] mb-6 leading-relaxed max-w-xs mx-auto">
+                  To apply for <span className="font-[700] text-slate-800">&ldquo;{applyingJob.title}&rdquo;</span>, you must log in through your Tutor Account.
+                </p>
+                <div className="space-y-2.5">
+                  <Button
+                    asChild
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-[800] rounded-xl text-sm h-11 shadow-md shadow-emerald-100"
+                  >
+                    <Link href="/login?role=tutor">
+                      Login as Tutor to Apply <ArrowRight className="w-4 h-4 ml-1.5" />
+                    </Link>
                   </Button>
-                  <p className="text-center text-[10px] text-brand-muted">
-                    By applying, you agree to our <a href="#" className="text-brand-blue underline">Terms of Service</a>.
-                  </p>
-                </form>
-              )}
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full border-slate-200 text-slate-700 hover:bg-slate-50 font-[700] rounded-xl text-xs h-10"
+                  >
+                    <Link href="/signup?role=tutor">
+                      Don&apos;t have an account? Sign Up Free →
+                    </Link>
+                  </Button>
+                </div>
+              </div>
             </div>
           </DialogContent>
         </Dialog>

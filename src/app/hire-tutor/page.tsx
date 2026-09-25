@@ -6,6 +6,7 @@ import { CheckCircle, Send, Building2, PhoneCall, ArrowRight } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import HelpCTA from "@/components/home/HelpCTA";
 
 export default function HireTutorPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -55,18 +56,18 @@ export default function HireTutorPage() {
               <div className="flex flex-col sm:flex-row gap-3 mb-8">
                 <Button
                   size="lg"
-                  className="bg-brand-blue hover:bg-brand-blue-dark text-white font-[800] rounded-2xl px-7 py-6 text-base shadow-lg shadow-blue-200"
-                  onClick={() => {
-                    document.getElementById("hiring-form")?.scrollIntoView({ behavior: "smooth" });
-                  }}
+                  className="bg-brand-teal hover:bg-brand-teal-dark text-white font-[800] rounded-2xl px-7 py-6 text-base shadow-lg shadow-teal-200"
+                  asChild
                 >
-                  Fill Hiring Form
-                  <Send className="w-4 h-4 ml-2" />
+                  <Link href="/login?role=school">
+                    Fill Hiring Form
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-slate-200 text-slate-800 hover:border-brand-blue hover:text-brand-blue font-[800] rounded-2xl px-7 py-6 text-base"
+                  className="border-2 border-slate-200 text-slate-800 hover:border-brand-teal hover:text-brand-teal font-[800] rounded-2xl px-7 py-6 text-base"
                   asChild
                 >
                   <a href="https://wa.me/9779762511114" target="_blank" rel="noopener noreferrer">
@@ -149,13 +150,25 @@ export default function HireTutorPage() {
 
               {/* Form Header */}
               <div className="mb-7 pb-5 border-b border-brand-border">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-[700] bg-emerald-50 text-emerald-700 border border-emerald-200 mb-3">
-                  <Building2 className="w-3.5 h-3.5" />
-                  School &amp; College Hiring Request
+                <div className="flex items-center justify-between flex-wrap gap-2 mb-3">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-[700] bg-teal-50 text-teal-700 border border-teal-200">
+                    <Building2 className="w-3.5 h-3.5" />
+                    School &amp; College Hiring Request
+                  </div>
+                  <Link
+                    href="/login?role=school"
+                    className="text-xs font-[700] text-brand-teal hover:text-brand-teal-dark underline flex items-center gap-1"
+                  >
+                    Already registered? Login as School →
+                  </Link>
                 </div>
                 <h2 className="text-2xl font-[800] text-brand-navy">Submit a Faculty Hiring Request</h2>
                 <p className="text-xs text-brand-text mt-1">
-                  Fill in your institution&apos;s details below. Our placement coordinator will shortlist matching educators within 24–48 hours.
+                  Fill in your institution&apos;s details below or{" "}
+                  <Link href="/login?role=school" className="text-brand-teal font-[700] hover:underline">
+                    Sign in to your School Account
+                  </Link>
+                  . Our placement coordinator will shortlist matching educators within 24–48 hours.
                 </p>
               </div>
 
@@ -418,6 +431,7 @@ export default function HireTutorPage() {
         </div>
       </div>
 
+      <HelpCTA />
     </div>
   );
 }

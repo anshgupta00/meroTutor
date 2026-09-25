@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Wifi, Calendar, User, Globe, Monitor, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import HelpCTA from "@/components/home/HelpCTA";
 
 export const metadata: Metadata = {
   title: "Online Tuition | Mero Tutor",
@@ -85,15 +86,7 @@ export default function OnlineTuitionPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-800 text-brand-navy mb-3">Find an Online Tutor Today</h2>
-          <p className="text-brand-text mb-6">Browse tutors offering online classes or let us help you find the right fit.</p>
-          <Button asChild className="bg-brand-teal hover:bg-brand-teal-dark text-white font-700 rounded-full px-10 py-3">
-            <Link href="/find-tutor?mode=online">Browse Online Tutors</Link>
-          </Button>
-        </div>
-      </section>
+      <HelpCTA />
     </div>
   );
 }

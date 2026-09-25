@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Award, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TutorCard from "@/components/tutors/TutorCard";
 import RequestTutorModal from "@/components/modals/RequestTutorModal";
@@ -14,23 +14,35 @@ export default function FeaturedTutors() {
   const featured = TUTORS.filter((t) => t.isVerified).slice(0, 6);
 
   return (
-    <section className="py-20 bg-brand-bg">
+    <section className="py-20 bg-slate-50/70 border-y border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-10">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-800 text-brand-navy mb-2">
-              Meet Our Tutors
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-[700] px-3.5 py-1.5 rounded-full mb-3 border border-blue-100">
+              <Award className="w-3.5 h-3.5 text-blue-600" />
+              <span>VERIFIED EDUCATORS</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-[900] text-slate-900 tracking-tight">
+              Meet Our Top Tutors
             </h2>
-            <p className="text-brand-text">
-              Verified, experienced teachers ready to help your child succeed.
+            <p className="text-base text-slate-600 font-[500] mt-2 max-w-2xl leading-relaxed">
+              Verified, highly qualified teachers ready to help your child succeed with home tuition and online classes across Nepal.
             </p>
           </div>
-          <Link href="/find-tutor" className="hidden sm:flex items-center gap-1 text-brand-blue font-600 text-sm hover:underline">
-            View all tutors <ArrowRight className="h-4 w-4" />
+
+          <Link
+            href="/find-tutor"
+            className="inline-flex items-center gap-1.5 text-sm font-[700] text-blue-600 hover:text-blue-700 hover:gap-2 transition-all self-start md:self-end"
+          >
+            <span>View all verified tutors</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Tutors Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {featured.map((tutor) => (
             <TutorCard
               key={tutor.id}
@@ -40,16 +52,22 @@ export default function FeaturedTutors() {
           ))}
         </div>
 
-        <div className="text-center mt-8">
-          <Button asChild variant="outline" className="border-brand-blue text-brand-blue hover:bg-brand-blue-light rounded-full px-7">
-            <Link href="/find-tutor">
-              View All Tutors
-              <ArrowRight className="h-4 w-4 ml-2" />
+        {/* Bottom CTA */}
+        <div className="text-center mt-12">
+          <Button
+            asChild
+            variant="outline"
+            className="border-slate-300 text-slate-800 hover:text-blue-600 hover:border-blue-300 hover:bg-white rounded-2xl px-8 py-6 text-sm font-[700] shadow-xs"
+          >
+            <Link href="/find-tutor" className="flex items-center gap-2">
+              Browse All Tutors Across Nepal
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </Button>
         </div>
       </div>
 
+      {/* Modal */}
       <RequestTutorModal
         tutor={selectedTutor}
         open={!!selectedTutor}

@@ -101,17 +101,17 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-700 text-brand-navy mb-1">Location</h3>
                   <p className="text-sm text-brand-text">Kathmandu, Nepal</p>
-                  <p className="text-xs text-brand-muted mt-1">Serving all of Kathmandu Valley</p>
+                  <p className="text-xs text-brand-muted mt-1">Serving all of Nepal</p>
                 </div>
               </div>
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-gradient-to-r from-brand-blue to-brand-blue-dark rounded-2xl p-6 text-white">
-              <h3 className="font-700 mb-2">Not sure where to start?</h3>
-              <p className="text-white/80 text-sm mb-4">Use our guided wizard and we&apos;ll help you find the right tutor.</p>
+            <div className="bg-gradient-to-br from-brand-teal-light via-white to-brand-blue-light border border-brand-border rounded-2xl p-6 shadow-xs">
+              <h3 className="font-[800] text-brand-navy mb-2">Not sure where to start?</h3>
+              <p className="text-brand-text text-sm mb-4 font-[500]">Use our guided wizard and we&apos;ll help you find the right tutor.</p>
               <a href="/help-me-find-a-tutor"
-                className="inline-flex items-center gap-2 bg-white text-brand-blue font-700 rounded-full px-5 py-2.5 text-sm hover:bg-brand-blue-light transition-colors">
+                className="inline-flex items-center gap-2 bg-brand-teal hover:bg-brand-teal-dark text-white font-[700] rounded-full px-5 py-2.5 text-sm transition-colors shadow-xs">
                 Help Me Find a Tutor <ArrowRight className="h-4 w-4" />
               </a>
             </div>

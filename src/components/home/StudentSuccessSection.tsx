@@ -41,7 +41,7 @@ const SUCCESS_STORIES = [
 const METRICS = [
   { value: "96%", label: "Grade Improvement Rate", desc: "Students saw higher exam marks within 2 months" },
   { value: "3.8+", label: "Average SEE/NEB GPA", desc: "Scored by our regular home-tutored students" },
-  { value: "5000+", label: "Successful Matches", desc: "Across Kathmandu, Lalitpur & Bhaktapur" },
+  { value: "3,000+", label: "Successful Matches", desc: "Across Nepal" },
   { value: "100%", label: "Satisfaction Guarantee", desc: "Free tutor replacement if not satisfied" },
 ];
 

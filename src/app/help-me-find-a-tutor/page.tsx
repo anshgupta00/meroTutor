@@ -6,6 +6,7 @@ import { CheckCircle2, ArrowRight, ArrowLeft, User, Phone, Mail } from "lucide-r
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import HelpCTA from "@/components/home/HelpCTA";
 import { CLASSES } from "@/data/classes";
 import { SUBJECTS } from "@/data/subjects";
 import { LOCATIONS } from "@/data/locations";
@@ -176,7 +177,7 @@ export default function HelpMeFindPage() {
             <div>
               <select value={data.location} onChange={(e) => setData(d => ({ ...d, location: e.target.value }))}
                 className="w-full h-12 px-4 rounded-xl border-2 border-brand-border text-brand-navy bg-white focus:outline-none focus:border-brand-blue text-sm">
-                <option value="">Select your location in Kathmandu Valley</option>
+                <option value="">Select your location in Nepal</option>
                 {LOCATIONS.map((l) => <option key={l} value={l}>{l}</option>)}
               </select>
               {errors.location && <p className="text-xs text-red-500 mt-2">{errors.location}</p>}
@@ -258,6 +259,7 @@ export default function HelpMeFindPage() {
           </div>
         )}
       </div>
+      <HelpCTA />
     </div>
   );
 }
